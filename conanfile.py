@@ -72,14 +72,6 @@ class DLibConan(ConanFile):
         cmake.build()
         cmake.install()
 
-    def package_info(self):
-        self.output.info("Compiler: %s %s" % (self.settings.compiler, self.settings.compiler.version))
-        self.output.info("Arch: %s" % self.settings.arch)
-        self.output.info("Build_type: %s" % self.settings.build_type)
-        if self.settings.compiler == "Visual Studio":
-            self.output.info("Runtime: %s" % self.settings.compiler.runtime)
-        self.cpp_info.libs = ["dlib"]
-
     def package(self):
         self.copy("*", dst="include/", src="bin/include")
         self.copy("*", dst="lib/", src="bin/lib")
