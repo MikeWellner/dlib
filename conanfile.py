@@ -1,3 +1,8 @@
+# mkdir build
+# cd build
+# conan install ..
+# conan build ..
+
 from conans import ConanFile, CMake, tools
 
 class DLibConan(ConanFile):
@@ -78,7 +83,7 @@ class DLibConan(ConanFile):
 
     def package_info(self):
         if self.settings.os == "Windows":
-            self.cpp_info.libs = ["libdlib.lib"]
+            self.cpp_info.libs = ["dlib19.21.99_release_64bit_msvc1926.lib"]
         elif self.settings.os == "Linux":
             self.cpp_info.libs = ["libdlib.a"]
         elif self.settings.os == "Macos":
